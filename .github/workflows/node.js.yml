@@ -29,7 +29,7 @@ jobs:
       with:
           image: ravivbenami/cicddemo
           registry: docker.io
-          username: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
         
