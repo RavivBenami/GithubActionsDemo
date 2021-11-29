@@ -27,7 +27,7 @@ jobs:
     - name: DockerHub Build And Push
       uses: Abhishek-070/Dockerhub-Build-Push@v1.0
       with:
-          registry_url: 'docker.io'
+          registry_url: 'ravivbenami'
           repository_name: 'cicddemo'
           user_name: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
