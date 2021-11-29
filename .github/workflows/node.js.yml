@@ -36,11 +36,11 @@ jobs:
        - uses: mr-smithers-excellent/docker-build-push@v5
          name: Build & push Docker image
          with:
-          image: ravivbenami/cicddemo
-          registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerfile: './backend/Dockerfile'
+             image: ravivbenami/cicddemo
+             registry: docker.io
+             username: ${{ secrets.DOCKERHUB_USERNAME }}
+             password: ${{ secrets.DOCKERHUB_TOKEN }}
+             dockerfile: './backend/Dockerfile'
 
         
     - run: npm test
