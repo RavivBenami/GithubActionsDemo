@@ -24,17 +24,15 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
 
-    - name: DockerHub Build And Push
-      uses: Abhishek-070/Dockerhub-Build-Push@v1.0
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
       with:
-          registry_url: 'registry.hub.docker.com/library'
-          repository_name: 'cicddemo'
-          user_name: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          image_version: 'v1.0'
-          docker_file: './frontend'
-    - name: Get pre step result output image_pull_url
-      run: echo "The time was ${{ steps.buildAndPushImage.outputs.image_pull_url }}"
+        image: ravivbenami/cicddemo
+        tags: v1, latest
+        registry: registry-url.io
+        dockerfile: './frontend'
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
 
         
     - run: npm test
