@@ -23,4 +23,18 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+
+    - name: DockerHub Build And Push
+      uses: Abhishek-070/Dockerhub-Build-Push@v1.0
+      with:
+          registry_url: 'docker.io'
+          repository_name: 'cicddemo'
+          user_name: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          image_version: 'v1.0'
+          docker_file: './frontend'
+     - name: Get pre step result output image_pull_url
+        run: echo "The time was ${{ steps.buildAndPushImage.outputs.image_pull_url }}"
+
+        
     - run: npm test
