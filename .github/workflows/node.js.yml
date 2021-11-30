@@ -49,4 +49,4 @@ jobs:
           email: ravivofficial@gmail.com # your heroku email
           api_key: ${{ secrets.HEROKU_TOKEN }} # your heroku api key
           app_name: ravivcicd # you aplication name
-          dockerfile_path: './frontend' # set the path 
+          dockerfile_path: '/Users/ravivbenami/Desktop/FullStack/Project2/frontend' # set the path 
