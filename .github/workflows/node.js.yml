@@ -33,20 +33,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           dockerfile: './frontend/Dockerfile'
 
-    - uses: mr-smithers-excellent/docker-build-push@v5
-      name: Build & push Docker image
-      with:
-          image: ravivbenami/cicddemo
-          registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerfile: './backend/Dockerfile'
+    # - uses: mr-smithers-excellent/docker-build-push@v5
+    #   name: Build & push Docker image
+    #   with:
+    #       image: ravivbenami/cicddemo
+    #       registry: docker.io
+    #       username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #       password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #       dockerfile: './backend/Dockerfile'
       
     - run: npm test
-
-    - uses: jctaveras/heroku-deploy@v1.0.0 # use the latest version of the action
-      with:
-          email: ravivofficial@gmail.com # your heroku email
-          api_key: ${{ secrets.HEROKU_TOKEN }} # your heroku api key
-          app_name: ravivcicd # you aplication name
-          dockerfile_path: '/Users/ravivbenami/Desktop/FullStack/Project2/frontend' # set the path 
